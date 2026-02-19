@@ -1,0 +1,40 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "company": "Google",
+      "position": "Frontend Developer",
+      "status": "applied",
+      "location": "Remote",
+      "salaryMin": 1200,
+      "salaryMax": 2500,
+      "note": "Sent CV",
+      "createdAt": "2026-02-10T10:00:00.000Z",
+      "updatedAt": "2026-02-10T10:00:00.000Z"
+    },
+    {
+      "id": "181d",
+      "company": "рпврпв",
+      "position": "впарвпрв",
+      "location": "впарвап",
+      "status": "interview",
+      "salaryMin": 500,
+      "salaryMax": 2500,
+      "note": null,
+      "createdAt": "2026-02-19T09:43:07.740Z",
+      "updatedAt": "2026-02-19T09:43:07.740Z"
+    },
+    {
+      "id": "e5f1",
+      "company": "првпрвпрв",
+      "position": "пврв",
+      "location": "впарвпрв",
+      "status": "wishlist",
+      "salaryMin": 500,
+      "salaryMax": 4599,
+      "note": null,
+      "createdAt": "2026-02-19T09:43:41.790Z",
+      "updatedAt": "2026-02-19T09:43:41.790Z"
+    }
+  ]
+}
