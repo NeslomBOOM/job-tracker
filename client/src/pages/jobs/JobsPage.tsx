@@ -40,10 +40,17 @@ export const JobsPage = () => {
         }),
         [query, status, sort]
     );
-    console.log("params:", params);
 
 
     const { data: jobs = [], isLoading, isError } = useJobs(params);
+
+    const sortedJobs = useMemo(() => {
+        return [...jobs].sort((a, b) => {
+            const first = new Date(a.createdAt).getTime();
+            const second = new Date(b.createdAt).getTime();
+            return sort === "newest" ? second - first : first - second;
+        });
+    }, [jobs, sort]);
 
     const onReset = () => {
         setQuery("");
@@ -162,7 +169,7 @@ export const JobsPage = () => {
 
                 <div className="flex flex-wrap items-center gap-2">
                     <div className="text-sm text-gray-600">
-                        Showing <span className="font-medium text-gray-900">{jobs.length}</span>{" "}
+                        Showing <span className="font-medium text-gray-900">{sortedJobs.length}</span>{" "}
                         jobs
                         {deleteJob.isPending ? (
                             <span className="ml-2 text-gray-500">(deleting...)</span>
@@ -182,7 +189,7 @@ export const JobsPage = () => {
             </div>
 
             {/* list */}
-            {jobs.length === 0 ? (
+            {sortedJobs.length === 0 ? (
                 <div className="rounded-2xl border p-10 text-center">
                     <div className="text-xl font-semibold">No jobs found</div>
                     <div className="mt-2 text-gray-600">
@@ -197,7 +204,7 @@ export const JobsPage = () => {
                 </div>
             ) : (
                 <div className="grid gap-4 lg:grid-cols-2">
-                    {jobs.map((job: Job) => (
+                    {sortedJobs.map((job: Job) => (
                         <div key={job.id} className="rounded-2xl border p-4">
                             <div className="flex items-start justify-between gap-3">
                                 <div>
